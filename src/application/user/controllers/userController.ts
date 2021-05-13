@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import AppError from '../../errors/AppError';
 import BCryptHashProvider from '../providers/hashProvider/implementations/BCryptHashProvider';
 import UserRepository from '../repositories/UserRepository';
@@ -24,12 +25,14 @@ export default class UserController {
       password: passwordHashed,
     });
 
-    return response.json({
+    const userWithoutPassword = {
       id: user.id,
       name: user.name,
       email: user.email,
       created_at: user.created_at,
       updated_at: user.updated_at,
-    });
+    };
+
+    return response.json(userWithoutPassword);
   }
 }

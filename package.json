@@ -13,6 +13,7 @@
     "celebrate": "^14.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.0.2",
     "typeorm": "^0.2.32"
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.1",
     "@types/range-parser": "^1.2.3",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
