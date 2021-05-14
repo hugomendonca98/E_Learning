@@ -1,22 +1,28 @@
 import { sign } from 'jsonwebtoken';
+import { Request, Response } from 'express';
 
 import authConfig from '../../config/auth';
 import AppError from '../../errors/AppError';
-import IAutheticationUserDTO from '../dtos/IAutheticationUserDTO';
-import User from '../models/User';
 import BCryptHashProvider from '../providers/hashProvider/implementations/BCryptHashProvider';
 import UserRepository from '../repositories/UserRepository';
 
 interface IResponse {
-  user: User;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+    created_at: Date;
+    updated_at: Date;
+  };
   token: string;
 }
 
 export default class AuthenticateUserController {
-  public async authentication({
-    email,
-    password,
-  }: IAutheticationUserDTO): Promise<IResponse> {
+  public async authentication(
+    request: Request,
+    response: Response,
+  ): Promise<Response> {
+    const { email, password } = request.body;
     const userRepository = new UserRepository();
     const hashProvider = new BCryptHashProvider();
 
@@ -42,9 +48,19 @@ export default class AuthenticateUserController {
       expiresIn: expireIn,
     });
 
-    return {
-      user,
+    const userWithoutPassword = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      created_at: user.created_at,
+      updated_at: user.updated_at,
+    };
+
+    const AuthResponse: IResponse = {
+      user: userWithoutPassword,
       token,
     };
+
+    return response.json(AuthResponse);
   }
 }
