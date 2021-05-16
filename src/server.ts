@@ -2,7 +2,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import { errors } from 'celebrate';
 import 'express-async-errors';
 
-import routes from './application/user/routes';
+import routes from './application/modules/user/routes';
 
 import './database';
 import AppError from './application/errors/AppError';

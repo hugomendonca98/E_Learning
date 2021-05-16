@@ -1,8 +1,8 @@
 import { sign } from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import authConfig from '../../config/auth';
-import AppError from '../../errors/AppError';
+import authConfig from '../../../config/auth';
+import AppError from '../../../errors/AppError';
 import BCryptHashProvider from '../providers/hashProvider/implementations/BCryptHashProvider';
 import UserRepository from '../repositories/UserRepository';
 
