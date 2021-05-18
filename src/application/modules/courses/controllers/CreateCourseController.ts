@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+
 import CourseRepository from '../repositories/CourseRepository';
 
 export default class CreateCourseController {
