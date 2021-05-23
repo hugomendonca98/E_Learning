@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
 
 import AppError from '../../../errors/AppError';
+import ICreateUserDTO from '../dtos/ICreateUserDTO';
 import BCryptHashProvider from '../providers/hashProvider/implementations/BCryptHashProvider';
 import UserRepository from '../repositories/UserRepository';
 
 export default class UserController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, email, password } = request.body;
+    const { name, email, password }: ICreateUserDTO = request.body;
 
     const bcryptHashProvider = new BCryptHashProvider();
     const userRepository = new UserRepository();

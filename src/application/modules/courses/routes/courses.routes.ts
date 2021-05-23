@@ -2,15 +2,11 @@ import { celebrate, Joi, Segments } from 'celebrate';
 import { Router } from 'express';
 
 import ensureAuthenticated from '../../user/middlewares/ensureAuthenticated';
-import CreateCourseController from '../controllers/CreateCourseController';
-import ListCoursesController from '../controllers/ListCourseController';
-import UpdateCourseController from '../controllers/UpdateCourseController';
+import CreateCourseController from '../controllers/CourseController';
 
 const courseRouter = Router();
 
-const createCourseController = new CreateCourseController();
-const updateCourseController = new UpdateCourseController();
-const listCoursesController = new ListCoursesController();
+const courseController = new CreateCourseController();
 
 courseRouter.use(ensureAuthenticated);
 
@@ -22,10 +18,10 @@ courseRouter.post(
       image: Joi.string().required(),
     },
   }),
-  createCourseController.create,
+  courseController.create,
 );
 
-courseRouter.get('/', listCoursesController.index);
+courseRouter.get('/', courseController.index);
 
 courseRouter.put(
   '/:course_id',
@@ -35,7 +31,7 @@ courseRouter.put(
       image: Joi.string().required().uri(),
     },
   }),
-  updateCourseController.Update,
+  courseController.update,
 );
 
 export default courseRouter;

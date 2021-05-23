@@ -46,10 +46,10 @@ export default class CreateLesson1621388929495 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: 'addCourseIdToLesson',
-            columnNames: ['course_id'],
-            referencedColumnNames: ['id'],
+            name: 'courseIdToLesson',
             referencedTableName: 'course',
+            referencedColumnNames: ['id'],
+            columnNames: ['course_id'],
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE',
           },

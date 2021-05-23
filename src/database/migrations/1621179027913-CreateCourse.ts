@@ -9,6 +9,7 @@ export default class CreateCourse1621179027913 implements MigrationInterface {
           {
             name: 'id',
             type: 'uuid',
+            isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
           },
