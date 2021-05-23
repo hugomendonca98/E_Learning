@@ -5,7 +5,7 @@ import CourseRepository from '../../courses/repositories/CourseRepository';
 import LessonRepository from '../repositories/LessonRepository';
 import ICreateLessonDTO from '../dtos/CreateLessonDTO';
 
-export default class CreateLessonController {
+export default class LessonController {
   public async create(request: Request, response: Response): Promise<Response> {
     const {
       name,
@@ -33,5 +33,19 @@ export default class CreateLessonController {
     });
 
     return response.json(lesson);
+  }
+
+  public async index(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const lessonRepository = new LessonRepository();
+
+    const lessons = await lessonRepository.findLessonsWithCourseId(id);
+
+    if (!lessons) {
+      throw new AppError('Lessons with the course is not found.');
+    }
+
+    return response.json(lessons);
   }
 }

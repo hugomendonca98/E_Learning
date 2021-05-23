@@ -24,4 +24,14 @@ lessonRouter.post(
   lessonController.create,
 );
 
+lessonRouter.get(
+  '/:id',
+  celebrate({
+    [Segments.PARAMS]: {
+      id: Joi.string().uuid().required(),
+    },
+  }),
+  lessonController.index,
+);
+
 export default lessonRouter;
