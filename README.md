@@ -108,3 +108,57 @@ A aplicação é voltada para educação, que oferece cursos de diversas áreas 
   }
 ]
 ```
+
+# Criando uma aula de um determinado curso:
+<a href="#"><img alt="Hugo Mendonça Dev" src="https://img.shields.io/badge/%2FLESSON-POST-brightgreen"/></a>
+
+
+**Exemplo de entrada de dados esperada (JSON):**
+```
+{
+  "name": "Aula 03",
+  "duration": 30,
+  "description": "Configurando e usando o webpack",
+  "course_id": "875a031e-6e83-49af-9f8b-e65cdd3d7bd2",
+  "video_id": "tXTS0wQkZio"
+}
+```
+
+**Exemplo de saída de dados esperada (JSON):**
+```
+{
+  "name": "Aula 03",
+  "duration": 30,
+  "course_id": "875a031e-6e83-49af-9f8b-e65cdd3d7bd2",
+  "description": "Configurando e usando o webpack",
+  "video_id": "tXTS0wQkZio",
+  "id": "5a8482a5-0fc8-41d2-8a69-d81f8b23b8c3",
+  "created_at": "2021-05-24T17:43:20.000Z",
+  "updated_at": "2021-05-24T17:43:20.000Z"
+}
+```
+
+# Listando todas as aulas de um determinado curso:
+<a href="#"><img alt="Hugo Mendonça Dev" src="https://img.shields.io/badge/%2FLESSON:ID/LESSONS-POST-blueviolet"/></a>
+
+**Exemplo de saída de dados esperada (JSON):**
+```
+[
+  {
+    "id": "6b620742-5c76-440c-b1e8-fdd30f023c39",
+    "name": "Aula 01",
+    "duration": 30,
+    "course_id": "875a031e-6e83-49af-9f8b-e65cdd3d7bd2",
+    "description": "Configurando e usando o webpack",
+    "video_id": "tXTS0wQkZio",
+    "created_at": "2021-05-23T16:45:21.000Z",
+    "updated_at": "2021-05-23T16:45:21.000Z",
+    "course": {
+      "id": "875a031e-6e83-49af-9f8b-e65cdd3d7bd2",
+      "name": "Curso de typescript completo 2021",
+      "image": "https://new-image.jpg",
+      "created_at": "2021-05-23T16:45:07.000Z",
+      "updated_at": "2021-05-23T16:45:07.000Z"
+    }
+  },
+```
