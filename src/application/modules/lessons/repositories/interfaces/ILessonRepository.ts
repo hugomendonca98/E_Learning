@@ -10,5 +10,7 @@ export default interface ILessonRepository {
     video_id,
   }: ICreateLessonDTO): Promise<Lesson>;
 
-  findLessonsWithCourseId(course_id: string): Promise<Lesson[] | undefined>;
+  findLessonById(lesson_id: string): Promise<Lesson | undefined>;
+
+  save(lesson: Lesson): Promise<Lesson>;
 }

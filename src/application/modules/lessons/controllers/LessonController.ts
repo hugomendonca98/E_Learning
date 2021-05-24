@@ -15,8 +15,8 @@ export default class LessonController {
       video_id,
     }: ICreateLessonDTO = request.body;
 
-    const lessonRepository = new LessonRepository();
     const courseRepository = new CourseRepository();
+    const lessonRepository = new LessonRepository();
 
     const course = await courseRepository.findCourseById(course_id);
 
@@ -40,12 +40,34 @@ export default class LessonController {
 
     const lessonRepository = new LessonRepository();
 
-    const lessons = await lessonRepository.findLessonsWithCourseId(id);
+    const lessons = await lessonRepository.findLessonById(id);
 
     if (!lessons) {
       throw new AppError('Lessons with the course is not found.');
     }
 
     return response.json(lessons);
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+    const { name, duration, description, video_id } = request.body;
+
+    const lessonRepository = new LessonRepository();
+
+    const lesson = await lessonRepository.findLessonById(id);
+
+    if (!lesson) {
+      throw new AppError('Lesson not exist.');
+    }
+
+    lesson.name = name;
+    lesson.duration = duration;
+    lesson.description = description;
+    lesson.video_id = video_id;
+
+    await lessonRepository.save(lesson);
+
+    return response.json(lesson);
   }
 }

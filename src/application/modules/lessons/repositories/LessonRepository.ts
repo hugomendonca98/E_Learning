@@ -43,4 +43,19 @@ export default class LessonRepository implements ILessonRepository {
 
     return lessons;
   }
+
+  public async findLessonById(lesson_id: string): Promise<Lesson | undefined> {
+    const lesson = await this.ormRepository.findOne({
+      where: {
+        id: lesson_id,
+      },
+      relations: ['course'],
+    });
+
+    return lesson;
+  }
+
+  public async save(lesson: Lesson): Promise<Lesson> {
+    return this.ormRepository.save(lesson);
+  }
 }
