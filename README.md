@@ -160,5 +160,6 @@ A aplicação é voltada para educação, que oferece cursos de diversas áreas 
       "created_at": "2021-05-23T16:45:07.000Z",
       "updated_at": "2021-05-23T16:45:07.000Z"
     }
-  },
+  }
+]
 ```
