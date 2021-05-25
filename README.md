@@ -139,7 +139,7 @@ A aplicação é voltada para educação, que oferece cursos de diversas áreas 
 ```
 
 # Listando todas as aulas de um determinado curso:
-<a href="#"><img alt="Hugo Mendonça Dev" src="https://img.shields.io/badge/%2FLESSON:ID/LESSONS-POST-blueviolet"/></a>
+<a href="#"><img alt="Hugo Mendonça Dev" src="https://img.shields.io/badge/%2FLESSON:ID/LESSONS-GET-blueviolet"/></a>
 
 **Exemplo de saída de dados esperada (JSON):**
 ```
