@@ -1,5 +1,5 @@
 # E_Learning
-A aplicação é voltada para educação, que oferece cursos de diversas áreas de conhecimento com um conteúdo em formato de videoaulas.
+A aplicação é voltada para educação, que oferece cursos de diversas áreas de conhecimento com um conteúdo em formato de video aulas.
 
 # Criando usuário:
 <a href="#"><img alt="Hugo Mendonça Dev" src="https://img.shields.io/badge/%2FUSER-POST-brightgreen"/></a>
